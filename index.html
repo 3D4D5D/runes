@@ -37,12 +37,12 @@ img {
         .word, .word.highlighted {
             position: absolute;
             cursor: grab;
-            font-size: 30px;
-            color: #ffeb3b;
+            font-size: 35px;
+            background-image: linear-gradient(to right, #33001b, #ff0084); 
         }
         .word.highlighted {
             font-weight: bold;
-            color: black;
+            color: rgb(255, 255, 255);
         }
         a {
             text-decoration: none;
@@ -73,7 +73,7 @@ img {
     const highlighted =
       text.startsWith(`"30under30"`) ||
       text.startsWith(`CTO`) ||
-      text.startsWith(`Mythrill`);
+      text.startsWith(``);
     return `<span class="word ${
       highlighted ? "highlighted" : null
     }">${text}</span>`;
