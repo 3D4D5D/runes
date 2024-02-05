@@ -44,26 +44,6 @@
       background-image: radial-gradient(circle farthest-side, #fceabb, #f8b500);
     }
     
-    button:nth-child(2) {
-      background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% );
-    }
-    
-    button:nth-child(3) {
-      background-image: radial-gradient(circle farthest-side, #fceabb, #f8b500);
-    }
-    
-    button:nth-child(4) {
-      background-image: linear-gradient(to right, #ff512f, #f09819);
-    }
-    
-    button:nth-child(5) {
-      background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% );
-    }
-    
-    button:nth-child(6) {
-      background-color: white;
-      color: black;
-    }
     
     #result {
       text-align: center;
@@ -85,75 +65,12 @@
     }
   </style>
   <script>
-    function calculateUncommonSatoshis() {
-      let result = '';
-      for (let i = 1; i <= 1000; i++) {
-        let uncommonSat = i * 5000000000;
-        result += `<a class="square" href="https://ordinals.com/sat/${uncommonSat}">${uncommonSat}</a>`;
-      }
-      document.getElementById('result').innerHTML = `Uncommon Satoshis:<br>${result}`;
-      document.getElementById('result').style.display = 'block';
-    }
-
-    function calculateRareSatoshis() {
-      let result = '';
-      for (let i = 1; i <= 150; i++) {
-        let rareSat = (i * 2016) * 5000000000;
-        result += `<a class="square" href="https://ordinals.com/sat/${rareSat}">${rareSat}</a>`;
-      }
-      document.getElementById('result').innerHTML = `Rare Satoshis:<br>${result}`;
-      document.getElementById('result').style.display = 'block';
-    }
-
-    function calculateEpicSatoshis() {
-      let result = '';
-      for (let i = 1; i <= 3; i++) {
-        let epicSat = (i * 210000) * 5000000000;
-        result += `<a class="square" href="https://ordinals.com/sat/${epicSat}">${epicSat}</a>`;
-      }
-      document.getElementById('result').innerHTML = `Epic Satoshis:<br>${result}`;
-      document.getElementById('result').style.display = 'block';
-    }
-
-    function calculateMythicSatoshi() {
-      let mythicSat = 0;
-      document.getElementById('result').innerHTML = `Mythic Satoshi:<br><a class="square" href="https://ordinals.com/sat/${mythicSat}">${mythicSat}</a>`;
-      document.getElementById('result').style.display = 'block';
-    }
-
-    function redirectToMarketplace() {
-      window.location.href = "https://unisat.io/market";
-    }
-
-    function listTextFiles() {
-      fetch('https://docs.ordinals.com')
-        .then(response => response.text())
-        .then(data => {
-          const files = data.split('\n').filter(file => file.endsWith('.txt'));
-          const first20Files = files.slice(0, 20);
-          let fileList = '';
-          first20Files.forEach(file => {
-            fileList += `<p>${file}</p>`;
-          });
-          document.getElementById('result').innerHTML = `Text Files:<br>${fileList}`;
-          document.getElementById('result').style.display = 'block';
-        })
-        .catch(error => {
-          console.log('Error fetching text files:', error);
-          document.getElementById('result').innerHTML = 'Error fetching text files.';
-          document.getElementById('result').style.display = 'block';
-        });
-    }
+    
   </script>
 </head>
 <body>
   <h1></h1>
 
-  <button onclick="calculateUncommonSatoshis()">Uncommon Satoshi</button>
-  <button onclick="calculateRareSatoshis()">Rare Satoshi</button>
-  <button onclick="calculateEpicSatoshis()">Epic Satoshi</button>
-  <button onclick="calculateMythicSatoshi()">Mythic Satoshi</button>
-  <button onclick="redirectToMarketplace()">Marketplace</button>
   
   <div id="result"></div>
 </body>
